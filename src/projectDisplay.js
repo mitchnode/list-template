@@ -1,25 +1,35 @@
 import { refresh } from "./refresh";
 import { projectViewDisplay } from "./projectViewDisplay";
 
-export function projectDisplay(parent, project){
-    const projectDOM = document.createElement("div");
-    projectDOM.className = "project";
+export function projectDisplay(parent, projectStore){
+    const projectDOMList = document.createElement("div");
+    projectDOMList.className = "projectlist";
 
-    const projectDOMBox = document.createElement("div");
-    projectDOMBox.className = "projectbox";
-    projectDOMBox.addEventListener("click", () => {refresh(content, projectViewDisplay(project))});
-    projectDOM.appendChild(projectDOMBox);
+    Object.entries(projectStore.getStoreData()).map(project => {
+        const projectDOM = document.createElement("div");
+        projectDOM.className = "project";
 
-    const projectDOMName = document.createElement("h3");
-    projectDOMName.className = "name";
-    projectDOMName.textContent = project.getName();
-    projectDOMBox.appendChild(projectDOMName);
+        const projectDOMBox = document.createElement("div");
+        projectDOMBox.className = "projectbox";
+        projectDOMBox.addEventListener("click", () => {refresh(parent, projectViewDisplay(project[1]))});
+        projectDOM.appendChild(projectDOMBox);
 
-    const projectDOMDelete = document.createElement("button");
-    projectDOMDelete.className = "delete";
-    projectDOMDelete.textContent = "X";
-    projectDOMDelete.addEventListener("click", () => {project.deleteProject();});
-    projectDOM.appendChild(projectDOMDelete);
+        const projectDOMName = document.createElement("h3");
+        projectDOMName.className = "name";
+        projectDOMName.textContent = project[1].getName();
+        projectDOMBox.appendChild(projectDOMName);
 
-    return projectDOM;
+        const projectDOMDelete = document.createElement("button");
+        projectDOMDelete.className = "delete";
+        projectDOMDelete.textContent = "X";
+        projectDOMDelete.addEventListener("click", () => {
+            project[1].deleteProject(); 
+            refresh(nav, projectDisplay(parent, projectStore)); 
+            refresh(content, projectViewDisplay(null));
+        });
+        projectDOM.appendChild(projectDOMDelete);
+        projectDOMList.appendChild(projectDOM);
+    })
+    
+    return projectDOMList;
 }
