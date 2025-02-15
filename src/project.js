@@ -1,7 +1,8 @@
 import { Item } from './item.js';
 
 export class Project{
-    constructor(name){
+    constructor(store, name){
+        this.store = store;
         this.name = name;
         this.projectData = {};
     }
@@ -27,7 +28,7 @@ export class Project{
     }
 
     deleteProject(){
-        delete this;
+        this.store.deleteProject(this.name);
     }
 
     deleteItem(name){
