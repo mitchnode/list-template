@@ -23,7 +23,7 @@ export class Project{
     }
     
     addItem(name){
-        this.projectData[name] = new Item(name);
+        this.projectData[name] = new Item(this, name);
     }
 
     deleteProject(){

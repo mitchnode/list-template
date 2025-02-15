@@ -1,12 +1,14 @@
+import { refresh } from "./refresh";
 import { projectViewDisplay } from "./projectViewDisplay";
 
-export function projectDisplay(project){
+export function projectDisplay(parent, project){
     const projectDOM = document.createElement("div");
     projectDOM.className = "project";
 
     const projectDOMBox = document.createElement("div");
     projectDOMBox.className = "projectbox";
-    projectDOMBox.addEventListener("click", () => {projectViewDisplay(project)});
+    projectDOMBox.addEventListener("click", () => {refresh(content, projectViewDisplay(project))});
+    projectDOM.appendChild(projectDOMBox);
 
     const projectDOMName = document.createElement("h3");
     projectDOMName.className = "name";

@@ -1,3 +1,5 @@
+import { refresh } from "./refresh";
+import { projectViewDisplay } from "./projectViewDisplay";
 
 export function itemDisplay(item){
     const itemDOM = document.createElement("div");
@@ -6,7 +8,7 @@ export function itemDisplay(item){
     const itemDOMBox = document.createElement("div");
     itemDOMBox.className = "itembox";
     itemDOM.appendChild(itemDOMBox);
-    
+
     const itemDOMName = document.createElement("h3");
     itemDOMName.className = "name";
     itemDOMName.textContent = item.getName();
@@ -36,7 +38,7 @@ export function itemDisplay(item){
     const itemDOMDelete = document.createElement("button");
     itemDOMDelete.className = "delete";
     itemDOMDelete.textContent = "X";
-    itemDOMDelete.addEventListener("click", () => {item.deleteItem();});
+    itemDOMDelete.addEventListener("click", () => {item.deleteItem(); refresh(content, projectViewDisplay(item.getProject()))});
     itemDOM.appendChild(itemDOMDelete);
 
     return itemDOM;

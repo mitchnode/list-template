@@ -7,6 +7,5 @@ export function testProject(){
     project.addItem("Test Item 1");
     project.addItem("Test Item 2");
     project.addItem("Test Item 3");
-    console.log(project);
-    projectDisplay(project);
+    nav.appendChild(projectDisplay(content,project));
 }

@@ -10,6 +10,9 @@ export class Item {
         this.flag = false;
     }
 
+    getProject(){
+        return this.project;
+    }
     getName(){
         return this.name;
     }

@@ -1,15 +1,18 @@
 import { itemDisplay } from "./itemDisplay";
 
 export function projectViewDisplay(project){
-    const projectView = document.createElement("div");
-    projectView.className = "projectview";
+    
+    const projectDOMView = document.createElement("div");
+    projectDOMView.className = "projectview";
 
-    const projectTitle = document.createElement("h1");
-    projectTitle.className = "projecttitle";
-    projectTitle.textContent = project.getName();
-    projectView.appendChild(projectTitle);
+    const projectDOMTitle = document.createElement("h1");
+    projectDOMTitle.className = "projecttitle";
+    projectDOMTitle.textContent = project.getName();
+    projectDOMView.appendChild(projectDOMTitle);
 
-    project.getProjectData.map((item) => {
-        projectView.appendChild(itemDisplay(item))
+    Object.entries(project.getProjectData()).map(item => {
+        projectDOMView.appendChild(itemDisplay(item[1]));
     })
+
+    return projectDOMView
 }
