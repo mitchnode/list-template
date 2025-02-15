@@ -1,7 +1,12 @@
+import { format } from "date-fns";
+
 export class Item {
-    constructor(name){
+    constructor(project, name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/mm/yyyy")){
+        this.project = project;
         this.name = name;
-        this.decription = "";
+        this.description = description;
+        this.priority = priority;
+        this.dueDate = dueDate;
         this.flag = false;
     }
 
@@ -10,9 +15,17 @@ export class Item {
     }
 
     getDescription(){
-        return this.decription;
+        return this.description;
     }
 
+    getPriority(){
+        return this.priority;
+    }
+
+    getDueDate(){
+        return this.dueDate;
+    }
+    
     getFlag(){
         return this.flag;
     }
@@ -22,14 +35,26 @@ export class Item {
     }
 
     setDescription(description){
-        this.decription = description;
+        this.description = description;
     }
 
-    setFlag(){
-        this.flag = true;
+    setPriority(priority){
+        this.priority = priority;
     }
 
-    unsetFlag(){
-        this.flag = false;
+    setDueDate(duedate){
+        this.dueDate = format(duedate, "dd/mm/yyyy");
+    }
+
+    toggleFlag(){
+        if(this.flag == false){
+            this.flag = true;
+        } else {
+            this.flag = false;
+        }
+    }
+
+    deleteItem(){
+        this.project.deleteItem(this.name);
     }
 }

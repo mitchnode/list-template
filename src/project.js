@@ -14,6 +14,10 @@ export class Project{
         return this.projectData;
     }
 
+    getLength(){
+        return this.projectData.length;
+    }
+
     setName(name){
         this.name = name;
     }
@@ -22,4 +26,11 @@ export class Project{
         this.projectData[name] = new Item(name);
     }
 
+    deleteProject(){
+        delete this;
+    }
+
+    deleteItem(name){
+        delete this.projectData[name];
+    }
 }

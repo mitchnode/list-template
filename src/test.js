@@ -1,4 +1,5 @@
 import { Project } from './project.js';
+import { projectDisplay } from './projectDisplay.js';
 
 export function testProject(){
     const name = "Test Project";
@@ -6,5 +7,6 @@ export function testProject(){
     project.addItem("Test Item 1");
     project.addItem("Test Item 2");
     project.addItem("Test Item 3");
-    console.log(project)
+    console.log(project);
+    projectDisplay(project);
 }
