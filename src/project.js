@@ -1,4 +1,5 @@
 import { Item } from './item.js';
+import { format } from "date-fns";
 
 export class Project{
     constructor(store, name){
@@ -21,10 +22,12 @@ export class Project{
 
     setName(name){
         this.name = name;
+        this.saveLocal();
     }
     
-    addItem(name){
-        this.projectData[name] = new Item(this, name);
+    addItem(name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/mm/yyyy")){
+        this.projectData[name] = new Item(this, name, description, priority, dueDate);
+        this.saveLocal();
     }
 
     deleteProject(){
@@ -33,5 +36,10 @@ export class Project{
 
     deleteItem(name){
         delete this.projectData[name];
+        this.saveLocal();
+    }
+
+    saveLocal(){
+        this.store.saveLocal();
     }
 }

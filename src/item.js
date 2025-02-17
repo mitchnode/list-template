@@ -13,6 +13,7 @@ export class Item {
     getProject(){
         return this.project;
     }
+
     getName(){
         return this.name;
     }
@@ -35,18 +36,22 @@ export class Item {
 
     setName(name){
         this.name = name;
+        this.saveLocal();
     }
 
     setDescription(description){
         this.description = description;
+        this.saveLocal();
     }
 
     setPriority(priority){
         this.priority = priority;
+        this.saveLocal();
     }
 
     setDueDate(duedate){
         this.dueDate = format(duedate, "dd/mm/yyyy");
+        this.saveLocal();
     }
 
     toggleFlag(){
@@ -55,9 +60,14 @@ export class Item {
         } else {
             this.flag = false;
         }
+        this.saveLocal();
     }
 
     deleteItem(){
         this.project.deleteItem(this.name);
+    }
+
+    saveLocal(){
+        this.project.saveLocal();
     }
 }
