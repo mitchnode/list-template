@@ -15,7 +15,6 @@ export class ProjectStore {
     deleteProject(name){
         delete this.storeData[name];
         this.saveLocal();
-        //console.log(this.storeData)
     }
 
     getStoreData(){
@@ -45,8 +44,7 @@ export class ProjectStore {
             var loadedProject = this.addProject(project[0]);
             Object.entries(project[1]["projectData"]).map(item => {
                 console.log(item);
-                loadedProject.addItem(item[1]["name"], item[1]["description"], item[1]["priority"], item[1]["dueDate"]);
-
+                loadedProject.addItem(item[1]["name"], item[1]["description"], item[1]["priority"], item[1]["dueDate"], item[1]["flag"]);
             });
         });
     }

@@ -25,8 +25,8 @@ export class Project{
         this.saveLocal();
     }
     
-    addItem(name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/mm/yyyy")){
-        this.projectData[name] = new Item(this, name, description, priority, dueDate);
+    addItem(name, description = "", priority = "normal", dueDate = Date.now() + 86400000, flag = false){
+        this.projectData[name] = new Item(this, name, description, priority, format(dueDate, "dd/MM/yyyy"), flag);
         this.saveLocal();
     }
 

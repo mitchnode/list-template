@@ -1,13 +1,13 @@
 import { format } from "date-fns";
 
 export class Item {
-    constructor(project, name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/mm/yyyy")){
+    constructor(project, name, description, priority, dueDate, flag){
         this.project = project;
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.dueDate = dueDate;
-        this.flag = false;
+        this.flag = flag;
     }
 
     getProject(){
