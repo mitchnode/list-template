@@ -12,7 +12,7 @@ export function testProject(){
         var project = projectStore.addProject(name);
         project.addItem("Test Item 1");
         project.addItem("Test Item 2", "This is a test item.", "High");
-        project.addItem("Test Item 3", "This is also a test item.", "Low", Date.parse("2025/02/25".toString()));
+        project.addItem("Test Item 3", "This is also a test item.", "Low", "25/02/2025");
         projectStore.addProject("Test Project 2");
     }
     nav.appendChild(projectDisplay(content,projectStore));
