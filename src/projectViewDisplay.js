@@ -10,8 +10,12 @@ export function projectViewDisplay(project){
         projectDOMTitle.textContent = project.getName();
         projectDOMView.appendChild(projectDOMTitle);
 
+        const projectDOMItems = document.createElement("div");
+        projectDOMItems.className = "projectitems";
+        projectDOMView.appendChild(projectDOMItems);
+
         Object.entries(project.getProjectData()).map(item => {
-            projectDOMView.appendChild(itemDisplay(item[1]));
+            projectDOMItems.appendChild(itemDisplay(item[1]));
         })
     }
 

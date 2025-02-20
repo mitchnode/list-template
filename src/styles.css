@@ -1,41 +1,61 @@
+:root{
+    --accent-color-1: rgb(255,150,150);
+    --accent-color-1-dark: rgb(255, 100, 100);
+    --accent-color-2: rgb(150, 255, 150);
+    --accent-color-2-dark: rgb(50, 255, 50);
+    --accent-color-3: rgb(255, 255, 150);
+    --accent-color-3-dark: rgb(255, 255, 100);
+    --primary-color-1: rgb(0, 0, 0);
+    --primary-text-color: rgb(200, 200, 200);
+    --alternate-text-color: rgb(20,20,20);
+    --background-color-1: rgb(50,50,50);
+    --background-color-2: rgb(100, 100, 100);
+    --background-color-3: rgb(150, 150, 150);
+}
+
 *{
     /*border: 1px black solid;*/
 }
+
+body{
+    background-color: var(--background-color-1);
+    color: var(--primary-text-color)
+}
 #container {
     display:flex;
-    padding: 5px;
     gap: 10px;
 }
 
 #nav {
-    border: 0px;
+    padding-right: 10px;
+    border-right: 1px var(--primary-color-1) solid;
 }
 
 .projectlist {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    padding: 5px 0;
+    gap: 0px;
     border: 0;
 }
 
 .project {
     display: flex;
     height: 25px;
-    border: 2px black solid;
-    border-radius: 10px;
+    border: 1px var(--primary-color-1) solid;
+    border-radius: 5px 25px 25px 5px;
+    background-color: var(--background-color-2);
 }
 
 .projectbox {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    border-radius: 5px 0 0 5px;
 }
 
 .project:hover {
-    background-color: rgb(199, 199, 199);
+    background-color: var(--background-color-3);
+    color: var(--alternate-text-color);
 }
 
 .name {
@@ -48,16 +68,69 @@
 }
 
 .delete {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 25px 25px 0;
     border: 0;
-    border-left: 1px black solid;
-    background-color: rgb(255, 150, 150);
+    border-left: 1px var(--primary-color-1) solid;
+    background-color: var(--accent-color-1);
+    font-weight: bold;
 }
 
 .delete:hover {
-    background-color: rgb(255, 100, 100);
+    background-color: var(--accent-color-1-dark);
 }
 
 #content {
     flex-grow: 4;
+}
+
+.projectview{
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.projecttitle{
+    border-bottom: 1px var(--primary-color-1) solid;
+}
+
+.projectitems{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+}
+
+.item {
+    padding: 10px;
+    border: 1px var(--background-color-3) solid;
+    border-radius: 10px;
+}
+
+.flag{
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 0;
+    border: 1 var(--background-color-3);
+    border-left: 1px var(--primary-color-1) solid;
+    background-color: var(--accent-color-2);
+    font-weight: bold;
+}
+.flag:hover{
+    background-color: var(--accent-color-2-dark);
+}
+
+.delete_item{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 0;
+    border: 1 var(--background-color-3);
+    border-left: 1px var(--primary-color-1) solid;
+    background-color: var(--accent-color-1);
+    font-weight: bold;
+}
+.delete_item:hover{
+    background-color: var(--accent-color-1-dark);
 }

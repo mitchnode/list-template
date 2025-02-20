@@ -36,7 +36,7 @@ export function itemDisplay(item){
     itemDOM.appendChild(itemDOMFlag);
 
     const itemDOMDelete = document.createElement("button");
-    itemDOMDelete.className = "delete";
+    itemDOMDelete.className = "delete_item";
     itemDOMDelete.textContent = "X";
     itemDOMDelete.addEventListener("click", () => {item.deleteItem(); refresh(content, projectViewDisplay(item.getProject()))});
     itemDOM.appendChild(itemDOMDelete);
