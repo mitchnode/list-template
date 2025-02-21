@@ -43,24 +43,26 @@ body{
 
 .project {
     display: flex;
+    gap: 10px;
     height: 25px;
-    
-    
+    padding: 0 2px 0 0;
+    border: 1px var(--background-color-3) solid;
+    box-shadow: 2px 2px 2px var(--accent-color-4);
+    border-radius: 5px 25px 25px 5px;
+    background-color: var(--background-color-1);
 }
 
 .projectbox {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    border: 1px var(--primary-color-1) solid;
-    box-shadow: 2px 2px 2px var(--accent-color-4);
-    border-radius: 5px 25px 25px 5px;
-    background-color: var(--background-color-1);
+    
 }
 
-.projectbox:hover {
-    background-color: var(--background-color-3);
-    color: var(--secondary-color-1);
+.project:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 5px var(--accent-color-4);
+    text-shadow: 0px 0px 10px var(--accent-color-4);
 }
 
 .name {
@@ -70,19 +72,6 @@ body{
     display: flex;
     align-items: center;
     padding: 0 5px;
-}
-
-.delete {
-    border-radius:25px;
-    width: 25px;
-    height: 25px;
-    border: 1px var(--secondary-color-1) solid;
-    background-color: var(--accent-color-1);
-    font-weight: bold;
-}
-
-.delete:hover {
-    background-color: var(--accent-color-1-dark);
 }
 
 #content {
@@ -109,51 +98,98 @@ body{
 .item {
     padding: 10px;
     border: 1px var(--background-color-3) solid;
-    box-shadow: 2px 2px 2px var(--accent-color-4);
+    box-shadow: 0px 0px 10px var(--accent-color-4);
     border-radius: 10px;
+    display: flex;
 }
 
 .item:hover {
-    box-shadow: 4px 4px 4px var(--accent-color-4);
+    cursor: pointer;
+    box-shadow: -4px -4px 10px var(--accent-color-4);
 }
 
-.flag{
-    margin: 0 5px;
+.itembox {
+    flex-grow: 1;
+}
+
+.itemcontrol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button {
     width: 20px;
     height: 20px;
     border-radius: 20px;
     padding: 0;
     border: 1px var(--secondary-color-1) solid;
+    box-shadow: 2px 2px 10px var(--accent-color-4);
+    background-size: 16px;
+    background-position: center;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: -4px -4px 10px var(--accent-color-4);
+}
+
+.additem {
+    height: 102px;
+    background-image: url('./img/add_icon.png');
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: center;
     background-color: var(--accent-color-2);
-    font-weight: bold;
+}
+
+.additem:hover{
+    background-color: var(--accent-color-2-dark);
+}
+
+.add {
+    width: 200px;
+    background-image: url('./img/add_icon.png');
+    background-color: var(--accent-color-2);
+    align-self: center;
+    background-repeat: no-repeat;
+    margin: 20px 0;
+}
+
+.add:hover {
+    background-color: var(--accent-color-2-dark);
+}
+
+.delete {
+    background-image: url('./img/cross_icon.png');
+    background-color: var(--accent-color-1);
+    align-self: center;
+}
+
+.delete:hover {
+    background-color: var(--accent-color-1-dark);
+}
+
+.flag{
+    background-image: url('./img/check_icon.png');
+    background-color: var(--accent-color-2);
 }
 .flag:hover{
     background-color: var(--accent-color-2-dark);
 }
 
 .edit{
-    margin: 0 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    padding: 0;
-    border: 1px var(--secondary-color-1) solid;
+    background-image: url('./img/gear_icon.png');
     background-color: var(--accent-color-3);
-    font-weight: bold;
 }
 .edit:hover{
     background-color: var(--accent-color-3-dark);
 }
 
 .delete_item{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    padding: 0;
-    border: 1 var(--background-color-3);
-    border: 1px var(--seconday-color-1) solid;
+    background-image: url('./img/cross_icon.png');
     background-color: var(--accent-color-1);
-    font-weight: bold;
 }
 .delete_item:hover{
     background-color: var(--accent-color-1-dark);

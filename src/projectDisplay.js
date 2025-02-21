@@ -21,7 +21,6 @@ export function projectDisplay(parent, projectStore){
 
         const projectDOMDelete = document.createElement("button");
         projectDOMDelete.className = "delete";
-        projectDOMDelete.textContent = "X";
         projectDOMDelete.addEventListener("click", () => {
             project[1].deleteProject(); 
             refresh(nav, projectDisplay(parent, projectStore)); 
@@ -31,5 +30,17 @@ export function projectDisplay(parent, projectStore){
         projectDOMList.appendChild(projectDOM);
     })
     
+    const projectDOMAdd = document.createElement("button");
+    projectDOMAdd.className = "add";
+    projectDOMAdd.addEventListener("click", () => {
+        var input = prompt("Enter the name of your project:", "Project Name")
+        if(input != null){
+            projectStore.addProject(input);
+            refresh(nav, projectDisplay(parent, projectStore));
+            refresh(content, projectViewDisplay(null));
+        }
+    });
+    projectDOMList.appendChild(projectDOMAdd);
+
     return projectDOMList;
 }

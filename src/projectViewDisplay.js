@@ -1,3 +1,5 @@
+import { add } from "date-fns";
+import { refresh } from "./refresh";
 import { itemDisplay } from "./itemDisplay";
 
 export function projectViewDisplay(project){
@@ -17,6 +19,19 @@ export function projectViewDisplay(project){
         Object.entries(project.getProjectData()).map(item => {
             projectDOMItems.appendChild(itemDisplay(item[1]));
         })
+        
+        const addItemDOM = document.createElement("div");
+        addItemDOM.classList = "item additem";
+        addItemDOM.addEventListener("click", () => {
+            var input = prompt("Enter item name", "Item Name");
+            if(input != null){
+                project.addItem(input);
+                refresh(content, projectViewDisplay(project))
+            }
+        });
+
+        projectDOMItems.appendChild(addItemDOM);
+
     }
 
     return projectDOMView

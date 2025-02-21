@@ -29,23 +29,24 @@ export function itemDisplay(item){
     itemDOMDueDate.textContent = item.getDueDate();
     itemDOMBox.appendChild(itemDOMDueDate);
 
+    const itemDOMControl = document.createElement("div");
+    itemDOMControl.className = "itemcontrol";
+    itemDOM.appendChild(itemDOMControl);
+
     const itemDOMFlag = document.createElement("button");
     itemDOMFlag.className = "flag";
-    itemDOMFlag.textContent = "✓";
     itemDOMFlag.addEventListener("click", () => {item.toggleFlag();});
-    itemDOM.appendChild(itemDOMFlag);
+    itemDOMControl.appendChild(itemDOMFlag);
 
     const itemDOMEdit = document.createElement("button");
     itemDOMEdit.className = "edit";
-    itemDOMEdit.textContent = "e";
     itemDOMEdit.addEventListener("click", () => {item.editItem();});
-    itemDOM.appendChild(itemDOMEdit);
+    itemDOMControl.appendChild(itemDOMEdit);
 
     const itemDOMDelete = document.createElement("button");
     itemDOMDelete.className = "delete_item";
-    itemDOMDelete.textContent = "X";
     itemDOMDelete.addEventListener("click", () => {item.deleteItem(); refresh(content, projectViewDisplay(item.getProject()))});
-    itemDOM.appendChild(itemDOMDelete);
+    itemDOMControl.appendChild(itemDOMDelete);
 
     return itemDOM;
 }
