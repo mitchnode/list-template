@@ -5,7 +5,7 @@
     --accent-color-2-dark: rgb(50, 255, 50);
     --accent-color-3: rgb(255, 255, 150);
     --accent-color-3-dark: rgb(255, 255, 100);
-    --accent-color-4: rgb(255, 100, 255);
+    --accent-color-4: rgba(255, 150, 255,0.5);
     --primary-color-1: rgb(255, 100, 255);
     --secondary-color-1: rgb(20,20,20);
     --primary-text-color: rgb(200, 200, 200);
@@ -53,7 +53,7 @@ body{
     display: flex;
     flex-direction: column;
     border: 1px var(--primary-color-1) solid;
-    box-shadow: 10px var(--primary-color-1);
+    box-shadow: 2px 2px 2px var(--accent-color-4);
     border-radius: 5px 25px 25px 5px;
     background-color: var(--background-color-1);
 }
@@ -109,7 +109,12 @@ body{
 .item {
     padding: 10px;
     border: 1px var(--background-color-3) solid;
+    box-shadow: 2px 2px 2px var(--accent-color-4);
     border-radius: 10px;
+}
+
+.item:hover {
+    box-shadow: 4px 4px 4px var(--accent-color-4);
 }
 
 .flag{
@@ -124,6 +129,20 @@ body{
 }
 .flag:hover{
     background-color: var(--accent-color-2-dark);
+}
+
+.edit{
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 0;
+    border: 1px var(--secondary-color-1) solid;
+    background-color: var(--accent-color-3);
+    font-weight: bold;
+}
+.edit:hover{
+    background-color: var(--accent-color-3-dark);
 }
 
 .delete_item{

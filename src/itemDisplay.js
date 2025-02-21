@@ -35,6 +35,12 @@ export function itemDisplay(item){
     itemDOMFlag.addEventListener("click", () => {item.toggleFlag();});
     itemDOM.appendChild(itemDOMFlag);
 
+    const itemDOMEdit = document.createElement("button");
+    itemDOMEdit.className = "edit";
+    itemDOMEdit.textContent = "e";
+    itemDOMEdit.addEventListener("click", () => {item.editItem();});
+    itemDOM.appendChild(itemDOMEdit);
+
     const itemDOMDelete = document.createElement("button");
     itemDOMDelete.className = "delete_item";
     itemDOMDelete.textContent = "X";
