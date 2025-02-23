@@ -6,6 +6,8 @@
     --accent-color-3: rgb(255, 255, 150);
     --accent-color-3-dark: rgb(255, 255, 100);
     --accent-color-4: rgba(255, 150, 255,0.5);
+    --accent-color-5: rgb(100,150,255);
+    --accent-color-5-dark: rgb(0,100,255);
     --primary-color-1: rgb(255, 100, 255);
     --secondary-color-1: rgb(20,20,20);
     --primary-text-color: rgb(200, 200, 200);
@@ -61,13 +63,22 @@ body{
     text-shadow: 0px 0px 10px var(--accent-color-4);
 }
 
+label {
+    display: flex;
+    text-align: left;
+    gap: 5px;
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+label div {
+    font-weight: normal;
+}
+
 .name {
     margin: 0px;
     font-size: 1em;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
+    flex: 1;
 }
 
 #content {
@@ -104,6 +115,8 @@ body{
 }
 
 .itembox {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
@@ -185,6 +198,14 @@ button:hover {
 }
 .edit:hover{
     background-color: var(--accent-color-3-dark);
+}
+
+.save{
+    background-image: url('./img/save_icon.png');
+    background-color: var(--accent-color-5);
+}
+.save:hover{
+    background-color: var(--accent-color-5-dark);
 }
 
 .delete_item{

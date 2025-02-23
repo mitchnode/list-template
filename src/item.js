@@ -8,6 +8,7 @@ export class Item {
         this.priority = priority;
         this.dueDate = dueDate;
         this.flag = flag;
+        this.edit = false;
     }
 
     getProject(){
@@ -32,6 +33,10 @@ export class Item {
     
     getFlag(){
         return this.flag;
+    }
+
+    getEdit(){
+        return this.edit;
     }
 
     setName(name){
@@ -61,6 +66,14 @@ export class Item {
             this.flag = false;
         }
         this.saveLocal();
+    }
+
+    editItem(){
+        if(this.edit == false){
+            this.edit = true;
+        } else {
+            this.edit = false;
+        }
     }
 
     deleteItem(){
