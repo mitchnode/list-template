@@ -15,10 +15,6 @@
     --background-color-3: rgb(150, 150, 150);
 }
 
-*{
-    /*border: 1px black solid;*/
-}
-
 body{
     background-color: var(--background-color-1);
     color: var(--primary-text-color)
@@ -104,12 +100,15 @@ body{
 }
 
 .item:hover {
-    cursor: pointer;
     box-shadow: -4px -4px 10px var(--accent-color-4);
 }
 
 .itembox {
     flex-grow: 1;
+}
+
+.itemcomplete {
+    text-decoration: line-through;
 }
 
 .itemcontrol {
@@ -145,6 +144,7 @@ button:hover {
 }
 
 .additem:hover{
+    cursor: pointer;
     background-color: var(--accent-color-2-dark);
 }
 

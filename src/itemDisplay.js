@@ -6,7 +6,11 @@ export function itemDisplay(item){
     itemDOM.className = "item";
 
     const itemDOMBox = document.createElement("div");
-    itemDOMBox.className = "itembox";
+    if(item.getFlag()){
+        itemDOMBox.classList = "itembox itemcomplete";
+    } else {
+        itemDOMBox.classList = "itembox";
+    }
     itemDOM.appendChild(itemDOMBox);
 
     const itemDOMName = document.createElement("h3");
@@ -35,13 +39,15 @@ export function itemDisplay(item){
 
     const itemDOMFlag = document.createElement("button");
     itemDOMFlag.className = "flag";
-    itemDOMFlag.addEventListener("click", () => {item.toggleFlag();});
+    itemDOMFlag.addEventListener("click", () => {item.toggleFlag(); refresh(content, projectViewDisplay(item.getProject()))});
     itemDOMControl.appendChild(itemDOMFlag);
 
-    const itemDOMEdit = document.createElement("button");
-    itemDOMEdit.className = "edit";
-    itemDOMEdit.addEventListener("click", () => {item.editItem();});
-    itemDOMControl.appendChild(itemDOMEdit);
+    if(!item.getFlag()){
+        const itemDOMEdit = document.createElement("button");
+        itemDOMEdit.className = "edit";
+        itemDOMEdit.addEventListener("click", () => {item.editItem(); refresh(content, projectViewDisplay(item.getProject()))});
+        itemDOMControl.appendChild(itemDOMEdit);
+    }    
 
     const itemDOMDelete = document.createElement("button");
     itemDOMDelete.className = "delete_item";
