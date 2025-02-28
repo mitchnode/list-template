@@ -1,13 +1,14 @@
-import { format } from "date-fns";
+import { format, toDate } from "date-fns";
 
 export class Item {
-    constructor(project, name, description, priority, dueDate, flag){
+    constructor(project, name, description, priority, dueDate, flag, itemid){
         this.project = project;
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.dueDate = dueDate;
         this.flag = flag;
+        this.itemid = itemid;
         this.edit = false;
     }
 
@@ -37,6 +38,19 @@ export class Item {
 
     getEdit(){
         return this.edit;
+    }
+
+    getItemId(){
+        return this.itemid;
+    }
+
+    saveItem(name, description, priority, dueDate){
+        this.setName(name);
+        this.setDescription(description);
+        this.setPriority(priority);
+        this.dueDate = dueDate;
+        this.editItem();
+        this.saveLocal();
     }
 
     setName(name){

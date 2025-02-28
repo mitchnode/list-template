@@ -2,6 +2,8 @@ import { refresh } from "./refresh";
 import { projectViewDisplay } from "./projectViewDisplay";
 
 export function itemDisplay(item){
+    const itemid = item.getItemId();
+
     const itemDOM = document.createElement("div");
     itemDOM.className = "item";
 
@@ -17,6 +19,19 @@ export function itemDisplay(item){
     let itemDOMDesc;
     let itemDOMPriority;
     let itemDOMDueDate;
+
+    const itemDOMNameRow =document.createElement("div");
+    itemDOMNameRow.className = 'itemrow';
+    const itemDOMDescRow =document.createElement("div");
+    itemDOMDescRow.className = 'itemrow';
+    const itemDOMPriorityRow =document.createElement("div");
+    itemDOMPriorityRow.className = 'itemrow';
+    const itemDOMDueDateRow =document.createElement("div");
+    itemDOMDueDateRow.className = 'itemrow';
+    itemDOMBox.appendChild(itemDOMNameRow);
+    itemDOMBox.appendChild(itemDOMDescRow);
+    itemDOMBox.appendChild(itemDOMPriorityRow);
+    itemDOMBox.appendChild(itemDOMDueDateRow);
 
     const itemDOMNameLabel = document.createElement("label");
     itemDOMNameLabel.textContent = "Name: ";
@@ -37,37 +52,41 @@ export function itemDisplay(item){
         itemDOMDueDate = document.createElement("div");
     } else {
         itemDOMName = document.createElement("input");
+        itemDOMName.id = `name${itemid}`;
         itemDOMName.value = item.getName();        
 
         itemDOMDesc = document.createElement("input");
+        itemDOMDesc.id = `desc${itemid}`
         itemDOMDesc.value = item.getDescription();
 
         itemDOMPriority = document.createElement("input");
+        itemDOMPriority.id = `priority${itemid}`
         itemDOMPriority.value = item.getPriority();
 
         itemDOMDueDate = document.createElement("input");
+        itemDOMDueDate.id = `duedate${itemid}`
         itemDOMDueDate.value = item.getDueDate();
     }
     
     itemDOMName.className = "name";
     itemDOMName.textContent = item.getName();
-    itemDOMBox.appendChild(itemDOMNameLabel);
-    itemDOMNameLabel.appendChild(itemDOMName);
+    itemDOMNameRow.appendChild(itemDOMNameLabel);
+    itemDOMNameRow.appendChild(itemDOMName);
     
     itemDOMDesc.className = "description"
     itemDOMDesc.textContent = item.getDescription();
-    itemDOMBox.appendChild(itemDOMDescLabel);
-    itemDOMDescLabel.appendChild(itemDOMDesc);
+    itemDOMDescRow.appendChild(itemDOMDescLabel);
+    itemDOMDescRow.appendChild(itemDOMDesc);
     
     itemDOMPriority.className = "priority"
     itemDOMPriority.textContent = item.getPriority();
-    itemDOMBox.appendChild(itemDOMPriorityLabel);
-    itemDOMPriorityLabel.appendChild(itemDOMPriority);
+    itemDOMPriorityRow.appendChild(itemDOMPriorityLabel);
+    itemDOMPriorityRow.appendChild(itemDOMPriority);
 
     itemDOMDueDate.className = "duedate";
     itemDOMDueDate.textContent = item.getDueDate();
-    itemDOMBox.appendChild(itemDOMDueDateLabel);
-    itemDOMDueDateLabel.appendChild(itemDOMDueDate);
+    itemDOMDueDateRow.appendChild(itemDOMDueDateLabel);
+    itemDOMDueDateRow.appendChild(itemDOMDueDate);
 
     const itemDOMControl = document.createElement("div");
     itemDOMControl.className = "itemcontrol";
@@ -84,10 +103,20 @@ export function itemDisplay(item){
         const itemDOMEdit = document.createElement("button");
         if(item.getEdit()){
             itemDOMEdit.className = "save";
+            itemDOMEdit.id = itemid;
+            itemDOMEdit.addEventListener("click", (e) => {
+                const itemid = e.target.id
+                const itemDOMName = document.getElementById(`name${itemid}`);
+                const itemDOMDesc = document.getElementById(`desc${itemid}`);
+                const itemDOMPriority = document.getElementById(`priority${itemid}`);
+                const itemDOMDueDate = document.getElementById(`duedate${itemid}`);
+
+                item.saveItem(itemDOMName.value,itemDOMDesc.value,itemDOMPriority.value,itemDOMDueDate.value); refresh(content, projectViewDisplay(item.getProject()))});
         } else {
             itemDOMEdit.className = "edit";
+            itemDOMEdit.addEventListener("click", () => {item.editItem(); refresh(content, projectViewDisplay(item.getProject()))});
         }
-        itemDOMEdit.addEventListener("click", () => {item.editItem(); refresh(content, projectViewDisplay(item.getProject()))});
+        
         itemDOMControl.appendChild(itemDOMEdit);
     }
     

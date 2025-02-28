@@ -5,6 +5,7 @@ export class Project{
     constructor(store, name){
         this.store = store;
         this.name = name;
+        this.count = 0;
         this.projectData = {};
     }
 
@@ -25,9 +26,10 @@ export class Project{
         this.saveLocal();
     }
     
-    addItem(name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/MM/yyyy"), flag = false){
-        this.projectData[name] = new Item(this, name, description, priority, dueDate, flag);
+    addItem(name, description = "", priority = "normal", dueDate = format(Date.now() + 86400000, "dd/MM/yyyy"), flag = false, itemid = this.count){
+        this.projectData[name] = new Item(this, name, description, priority, dueDate, flag, itemid);
         this.saveLocal();
+        this.count += 1;
     }
 
     deleteProject(){

@@ -44,7 +44,7 @@ export class ProjectStore {
             var loadedProject = this.addProject(project[0]);
             Object.entries(project[1]["projectData"]).map(item => {
                 console.log(item);
-                loadedProject.addItem(item[1]["name"], item[1]["description"], item[1]["priority"], item[1]["dueDate"], item[1]["flag"]);
+                loadedProject.addItem(item[1]["name"], item[1]["description"], item[1]["priority"], item[1]["dueDate"], item[1]["flag"], item[1]["itemid"]);
             });
         });
     }

@@ -15,6 +15,7 @@
     --background-color-1: rgb(50,50,50);
     --background-color-2: rgb(100, 100, 100);
     --background-color-3: rgb(150, 150, 150);
+    --background-color-4: rgb(200, 200, 200);
 }
 
 body{
@@ -54,7 +55,7 @@ body{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
 }
 
 .project:hover {
@@ -64,21 +65,21 @@ body{
 }
 
 label {
-    display: flex;
+    display: table-cell;
     text-align: left;
     gap: 5px;
     flex-grow: 1;
     font-weight: bold;
 }
 
-label div {
-    font-weight: normal;
+.item div {
+    padding-left: 5px;
 }
 
 .name {
     margin: 0px;
     font-size: 1em;
-    flex: 1;
+    padding-left: 5px;
 }
 
 #content {
@@ -102,12 +103,28 @@ label div {
     grid-gap: 10px;
 }
 
+.itemrow {
+    display: table-row;
+}
+
 .item {
     padding: 10px;
     border: 1px var(--background-color-3) solid;
     box-shadow: 0px 0px 10px var(--accent-color-4);
     border-radius: 10px;
     display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.item input{
+    display: table-cell;
+    height: 0.9em;
+    font-size: 0.9em;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--accent-color-4);
+    background-color: var(--background-color-4);
 }
 
 .item:hover {
@@ -115,9 +132,8 @@ label div {
 }
 
 .itembox {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    display: table;
+    border-spacing: 5px;
 }
 
 .itemcomplete {
