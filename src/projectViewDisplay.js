@@ -14,10 +14,17 @@ export function projectViewDisplay(project){
 
         const projectDOMItems = document.createElement("div");
         projectDOMItems.className = "projectitems";
+        const projectDOMCompletedItems = document.createElement("div");
+        projectDOMCompletedItems.classList = "projectitems completeditems";
         projectDOMView.appendChild(projectDOMItems);
+        
 
         Object.entries(project.getProjectData()).map(item => {
-            projectDOMItems.appendChild(itemDisplay(item[1]));
+            if(item[1].getFlag()){
+                projectDOMCompletedItems.appendChild(itemDisplay(item[1]));
+            } else {
+                projectDOMItems.appendChild(itemDisplay(item[1]));
+            }
         })
         
         const addItemDOM = document.createElement("div");
@@ -31,7 +38,7 @@ export function projectViewDisplay(project){
         });
 
         projectDOMItems.appendChild(addItemDOM);
-
+        projectDOMView.appendChild(projectDOMCompletedItems);
     }
 
     return projectDOMView

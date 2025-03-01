@@ -101,6 +101,8 @@ label {
     grid-template-columns: 300px 300px;
     grid-template-rows: auto;
     grid-gap: 10px;
+    padding: 10px;
+    border-top: 1px var(--primary-color-1) solid;
 }
 
 .itemrow {
@@ -117,12 +119,18 @@ label {
     justify-content: space-between;
 }
 
-.item input{
+.completeditems .item{
+    box-shadow: none;
+    background-color: var(--background-color-2);
+}
+
+.item input,.item select{
     display: table-cell;
-    height: 0.9em;
-    font-size: 0.9em;
+    
+    font-size: 0.8em;
     width: 90%;
     border-radius: 5px;
+    padding-left: 5px;
     box-shadow: 0px 0px 5px var(--accent-color-4);
     background-color: var(--background-color-4);
 }

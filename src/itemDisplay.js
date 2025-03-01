@@ -18,8 +18,9 @@ export function itemDisplay(item){
     let itemDOMName;
     let itemDOMDesc;
     let itemDOMPriority;
+    let itemDOMPriorityList = document.createElement("datalist");
     let itemDOMDueDate;
-
+    
     const itemDOMNameRow =document.createElement("div");
     itemDOMNameRow.className = 'itemrow';
     const itemDOMDescRow =document.createElement("div");
@@ -49,6 +50,7 @@ export function itemDisplay(item){
         itemDOMName = document.createElement("div");
         itemDOMDesc = document.createElement("div");
         itemDOMPriority = document.createElement("div");
+        itemDOMPriority.textContent = item.getPriority();
         itemDOMDueDate = document.createElement("div");
     } else {
         itemDOMName = document.createElement("input");
@@ -59,9 +61,23 @@ export function itemDisplay(item){
         itemDOMDesc.id = `desc${itemid}`
         itemDOMDesc.value = item.getDescription();
 
-        itemDOMPriority = document.createElement("input");
-        itemDOMPriority.id = `priority${itemid}`
-        itemDOMPriority.value = item.getPriority();
+        itemDOMPriority = document.createElement("select");
+        itemDOMPriority.title = `priority${itemid}`;
+        itemDOMPriority.id = `priority${itemid}`;
+        /*itemDOMPriority.value = item.getPriority();*/
+
+        const options = ['Low', 'Normal', 'High'];
+
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            if(option == item.getPriority()){
+                optionElement.selected = true;
+            }
+            optionElement.textContent = option;
+            itemDOMPriority.appendChild(optionElement);
+        });
+            
 
         itemDOMDueDate = document.createElement("input");
         itemDOMDueDate.id = `duedate${itemid}`
@@ -79,7 +95,6 @@ export function itemDisplay(item){
     itemDOMDescRow.appendChild(itemDOMDesc);
     
     itemDOMPriority.className = "priority"
-    itemDOMPriority.textContent = item.getPriority();
     itemDOMPriorityRow.appendChild(itemDOMPriorityLabel);
     itemDOMPriorityRow.appendChild(itemDOMPriority);
 
@@ -97,6 +112,10 @@ export function itemDisplay(item){
         itemDOMFlag.className = "flag";
         itemDOMFlag.addEventListener("click", () => {item.toggleFlag(); refresh(content, projectViewDisplay(item.getProject()))});
         itemDOMControl.appendChild(itemDOMFlag);
+        const itemDOMDelete = document.createElement("button");
+        itemDOMDelete.className = "delete_item";
+        itemDOMDelete.addEventListener("click", () => {item.deleteItem(); refresh(content, projectViewDisplay(item.getProject()))});
+        itemDOMControl.appendChild(itemDOMDelete);
     }
 
     if(!item.getFlag()){
@@ -119,12 +138,6 @@ export function itemDisplay(item){
         
         itemDOMControl.appendChild(itemDOMEdit);
     }
-    
-    const itemDOMDelete = document.createElement("button");
-    itemDOMDelete.className = "delete_item";
-    itemDOMDelete.addEventListener("click", () => {item.deleteItem(); refresh(content, projectViewDisplay(item.getProject()))});
-    itemDOMControl.appendChild(itemDOMDelete);
-
     return itemDOM;
 }
 
