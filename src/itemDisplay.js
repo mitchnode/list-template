@@ -89,12 +89,12 @@ export function itemDisplay(item){
     itemDOMNameRow.appendChild(itemDOMNameLabel);
     itemDOMNameRow.appendChild(itemDOMName);
     
-    itemDOMDesc.className = "description"
+    itemDOMDesc.className = "description";
     itemDOMDesc.textContent = item.getDescription();
     itemDOMDescRow.appendChild(itemDOMDescLabel);
     itemDOMDescRow.appendChild(itemDOMDesc);
     
-    itemDOMPriority.className = "priority"
+    itemDOMPriority.className = "priority";
     itemDOMPriorityRow.appendChild(itemDOMPriorityLabel);
     itemDOMPriorityRow.appendChild(itemDOMPriority);
 

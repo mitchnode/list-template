@@ -164,6 +164,57 @@ label {
     justify-content: space-between;
 }
 
+/* Listview */
+
+.listview {
+    display: flex;
+    flex-direction: column;
+    gap:0px;
+}
+
+.listview .item{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.listview .item div{
+    padding-left: 0px;
+}
+
+.listview .itemheading{
+    font-weight: bold;
+    text-decoration: underline;
+    gap: 25px;
+}
+
+.listview .itembox{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 3;
+    justify-content: space-between;
+}
+
+.listview .itembox div{
+    
+}
+
+.listview label{
+    display: none;
+}
+
+.listview .itemcontrol{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.listview .additem{
+    height:20px;
+    flex-grow: 1;
+    align-self: stretch;
+}
+
 /* --Buttons-- */
 
 button {
