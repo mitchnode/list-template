@@ -29,7 +29,7 @@ export class Item {
     }
 
     getDueDate(){
-        return this.dueDate;
+        return format(this.dueDate, "dd/MM/yyyy");
     }
     
     getFlag(){
@@ -69,7 +69,7 @@ export class Item {
     }
 
     setDueDate(duedate){
-        this.dueDate = format(duedate, "dd/mm/yyyy");
+        this.dueDate = duedate;
         this.saveLocal();
     }
 

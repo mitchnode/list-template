@@ -80,6 +80,7 @@ export function itemDisplay(item){
 
         itemDOMDueDate = document.createElement("input");
         itemDOMDueDate.id = `duedate${itemid}`
+        itemDOMDueDate.type = "date";
         itemDOMDueDate.value = item.getDueDate();
     }
     
@@ -97,7 +98,7 @@ export function itemDisplay(item){
     itemDOMPriorityRow.appendChild(itemDOMPriorityLabel);
     itemDOMPriorityRow.appendChild(itemDOMPriority);
 
-    if(item.getDueDate() >= format(Date.now(), "dd/MM/yyyy") && !item.getFlag()){
+    if(item.getDueDate() <= format(Date.now(), "dd/MM/yyyy") && !item.getFlag()){
         itemDOMDueDate.classList = "duedate overdue";
     } else {
         itemDOMDueDate.className = "duedate";
