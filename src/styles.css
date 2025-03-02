@@ -32,6 +32,8 @@ body{
     border-right: 1px var(--primary-color-1) solid;
 }
 
+/* --Projects-- */
+
 .projectlist {
     flex-grow: 1;
     display: flex;
@@ -64,18 +66,6 @@ body{
     text-shadow: 0px 0px 10px var(--accent-color-4);
 }
 
-label {
-    display: table-cell;
-    text-align: left;
-    gap: 5px;
-    flex-grow: 1;
-    font-weight: bold;
-}
-
-.item div {
-    padding-left: 5px;
-}
-
 .name {
     margin: 0px;
     font-size: 1em;
@@ -95,6 +85,10 @@ label {
 .projecttitle{
     border-bottom: 1px var(--primary-color-1) solid;
 }
+
+/* --Items-- */
+
+/* Boxed */
 
 .projectitems{
     display: grid;
@@ -117,6 +111,18 @@ label {
     display: flex;
     gap: 5px;
     justify-content: space-between;
+}
+
+label {
+    display: table-cell;
+    text-align: left;
+    gap: 5px;
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+.item div {
+    padding-left: 5px;
 }
 
 .completeditems .item{
@@ -144,6 +150,10 @@ label {
     border-spacing: 5px;
 }
 
+.overdue {
+    color: var(--accent-color-1);
+}
+
 .itemcomplete {
     text-decoration: line-through;
 }
@@ -153,6 +163,8 @@ label {
     flex-direction: column;
     justify-content: space-between;
 }
+
+/* --Buttons-- */
 
 button {
     width: 20px;

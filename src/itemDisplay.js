@@ -1,5 +1,6 @@
 import { refresh } from "./refresh";
 import { projectViewDisplay } from "./projectViewDisplay";
+import { format, toDate } from "date-fns";
 
 export function itemDisplay(item){
     const itemid = item.getItemId();
@@ -18,7 +19,6 @@ export function itemDisplay(item){
     let itemDOMName;
     let itemDOMDesc;
     let itemDOMPriority;
-    let itemDOMPriorityList = document.createElement("datalist");
     let itemDOMDueDate;
     
     const itemDOMNameRow =document.createElement("div");
@@ -64,7 +64,6 @@ export function itemDisplay(item){
         itemDOMPriority = document.createElement("select");
         itemDOMPriority.title = `priority${itemid}`;
         itemDOMPriority.id = `priority${itemid}`;
-        /*itemDOMPriority.value = item.getPriority();*/
 
         const options = ['Low', 'Normal', 'High'];
 
@@ -98,7 +97,11 @@ export function itemDisplay(item){
     itemDOMPriorityRow.appendChild(itemDOMPriorityLabel);
     itemDOMPriorityRow.appendChild(itemDOMPriority);
 
-    itemDOMDueDate.className = "duedate";
+    if(item.getDueDate() >= format(Date.now(), "dd/MM/yyyy") && !item.getFlag()){
+        itemDOMDueDate.classList = "duedate overdue";
+    } else {
+        itemDOMDueDate.className = "duedate";
+    }
     itemDOMDueDate.textContent = item.getDueDate();
     itemDOMDueDateRow.appendChild(itemDOMDueDateLabel);
     itemDOMDueDateRow.appendChild(itemDOMDueDate);
