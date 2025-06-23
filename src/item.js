@@ -29,7 +29,14 @@ export class Item {
     }
 
     getDueDate(){
-        return format(this.dueDate, "dd/MM/yyyy");
+        var newDate = this.dueDate;
+        const [date1, date2, date3] = this.dueDate.split(/[/-]/);
+        if(date1 > 32){
+             newDate = new Date(date1, date2 - 1, date3);
+        } else {
+             newDate = new Date(date3, date2 - 1, date1);
+         }
+        return format(newDate, 'dd/MM/yyyy');
     }
     
     getFlag(){

@@ -195,10 +195,6 @@ label {
     justify-content: space-between;
 }
 
-.listview .itembox div{
-    
-}
-
 .listview label{
     display: none;
 }
