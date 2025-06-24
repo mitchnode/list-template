@@ -1,8 +1,11 @@
-import { Project } from './project.js';
 import { ProjectStore } from './projectStore.js';
 import { projectDisplay } from './projectDisplay.js';
 
 export function testProject(){
+    const pageTitle = document.createElement("H1");
+    pageTitle.textContent = "To Do List";
+    title.appendChild(pageTitle);
+
     const name = "Test Project";
     var projectStore = new ProjectStore();
     if(localStorage.getItem("ProjectStore")){
