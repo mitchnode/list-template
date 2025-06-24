@@ -5,6 +5,10 @@ export function projectDisplay(parent, projectStore){
     const projectDOMList = document.createElement("div");
     projectDOMList.className = "projectlist";
 
+    const titleName = document.createElement("H1");
+    titleName.textContent = "Projects";
+    projectDOMList.appendChild(titleName);
+
     Object.entries(projectStore.getStoreData()).map(project => {
         const projectDOM = document.createElement("div");
         projectDOM.className = "project";
