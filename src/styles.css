@@ -22,6 +22,12 @@ body{
     background-color: var(--background-color-1);
     color: var(--primary-text-color)
 }
+
+#title h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
 #container {
     display:flex;
     gap: 10px;
