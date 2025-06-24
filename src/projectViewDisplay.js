@@ -27,7 +27,7 @@ export function projectViewDisplay(project){
         
         projectDOMView.appendChild(projectDOMItems);
         
-        const itemDOMHeading = document.createElement("div");
+        /* const itemDOMHeading = document.createElement("div");
         itemDOMHeading.classList = "item itemheading"
         const itemDOMHeadingBox = document.createElement("div");
         itemDOMHeadingBox.classList = "itembox itemheadingbox";
@@ -52,8 +52,8 @@ export function projectViewDisplay(project){
         itemDOMHeading.appendChild(itemDOMHeadingBox);
         itemDOMHeading.appendChild(itemDOMControlsHeading);
 
-        projectDOMItems.appendChild(itemDOMHeading);
-
+        //projectDOMItems.appendChild(itemDOMHeading); */
+        
 
         Object.entries(project.getProjectData()).map(item => {
             if(item[1].getFlag()){
