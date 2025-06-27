@@ -1,306 +1,306 @@
-:root{
-    --accent-color-1: rgb(255,150,150);
-    --accent-color-1-dark: rgb(255, 100, 100);
-    --accent-color-2: rgb(150, 255, 150);
-    --accent-color-2-dark: rgb(50, 255, 50);
-    --accent-color-3: rgb(255, 255, 150);
-    --accent-color-3-dark: rgb(255, 255, 100);
-    --accent-color-4: rgba(255, 150, 255,0.5);
-    --accent-color-5: rgb(100,150,255);
-    --accent-color-5-dark: rgb(0,100,255);
-    --primary-color-1: rgb(255, 100, 255);
-    --secondary-color-1: rgb(20,20,20);
-    --primary-text-color: rgb(200, 200, 200);
-    --alternate-text-color: rgb(20,20,20);
-    --background-color-1: rgb(50,50,50);
-    --background-color-2: rgb(100, 100, 100);
-    --background-color-3: rgb(150, 150, 150);
-    --background-color-4: rgb(200, 200, 200);
+:root {
+  --accent-color-1: rgb(255, 150, 150);
+  --accent-color-1-dark: rgb(255, 100, 100);
+  --accent-color-2: rgb(150, 255, 150);
+  --accent-color-2-dark: rgb(50, 255, 50);
+  --accent-color-3: rgb(255, 255, 150);
+  --accent-color-3-dark: rgb(255, 255, 100);
+  --accent-color-4: rgba(255, 150, 255, 0.5);
+  --accent-color-5: rgb(100, 150, 255);
+  --accent-color-5-dark: rgb(0, 100, 255);
+  --primary-color-1: rgb(255, 100, 255);
+  --secondary-color-1: rgb(20, 20, 20);
+  --primary-text-color: rgb(200, 200, 200);
+  --alternate-text-color: rgb(20, 20, 20);
+  --background-color-1: rgb(50, 50, 50);
+  --background-color-2: rgb(100, 100, 100);
+  --background-color-3: rgb(150, 150, 150);
+  --background-color-4: rgb(200, 200, 200);
 }
 
-body{
-    background-color: var(--background-color-1);
-    color: var(--primary-text-color)
+body {
+  background-color: var(--background-color-1);
+  color: var(--primary-text-color);
 }
 
-#title h1{
-    text-align: center;
-    text-decoration: underline;
+#title h1 {
+  text-align: center;
+  text-decoration: underline;
 }
 
 #container {
-    display:flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 #nav {
-    padding-right: 10px;
-    border-right: 1px var(--primary-color-1) solid;
+  padding-right: 10px;
+  border-right: 1px var(--primary-color-1) solid;
 }
 
 /* --Projects-- */
 
 .projectlist {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    border: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  border: 0;
 }
 
 .project {
-    display: flex;
-    gap: 10px;
-    height: 25px;
-    padding: 0 2px 0 0;
-    border: 1px var(--background-color-3) solid;
-    box-shadow: 2px 2px 2px var(--accent-color-4);
-    border-radius: 5px 25px 25px 5px;
-    background-color: var(--background-color-1);
+  display: flex;
+  gap: 10px;
+  height: 25px;
+  padding: 0 2px 0 0;
+  border: 1px var(--background-color-3) solid;
+  box-shadow: 2px 2px 2px var(--accent-color-4);
+  border-radius: 5px 25px 25px 5px;
+  background-color: var(--background-color-1);
 }
 
 .projectbox {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .project:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 5px var(--accent-color-4);
-    text-shadow: 0px 0px 10px var(--accent-color-4);
+  cursor: pointer;
+  box-shadow: 2px 2px 5px var(--accent-color-4);
+  text-shadow: 0px 0px 10px var(--accent-color-4);
 }
 
 .name {
-    margin: 0px;
-    font-size: 1em;
-    padding-left: 5px;
+  margin: 0px;
+  font-size: 1em;
+  padding-left: 5px;
 }
 
 #content {
-    flex-grow: 4;
+  flex-grow: 4;
 }
 
-.projectview{
-    display:flex;
-    flex-direction: column;
-    
+.projectview {
+  display: flex;
+  flex-direction: column;
 }
 
-.projecttitle{
-    border-bottom: 1px var(--primary-color-1) solid;
+.projecttitle {
+  border-bottom: 1px var(--primary-color-1) solid;
 }
 
 /* --Items-- */
 
 /* Boxed */
 
-.projectitems{
-    display: grid;
-    grid-template-columns: 300px 300px;
-    grid-template-rows: auto;
-    grid-gap: 10px;
-    padding: 10px;
-    border-top: 1px var(--primary-color-1) solid;
+.projectitems {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border-top: 1px var(--primary-color-1) solid;
 }
 
 .itemrow {
-    display: table-row;
+  display: table-row;
 }
 
 .item {
-    padding: 10px;
-    border: 1px var(--background-color-3) solid;
-    box-shadow: 0px 0px 10px var(--accent-color-4);
-    border-radius: 10px;
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
+  padding: 10px;
+  border: 1px var(--background-color-3) solid;
+  box-shadow: 0px 0px 10px var(--accent-color-4);
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
 }
 
 label {
-    display: table-cell;
-    text-align: left;
-    gap: 5px;
-    flex-grow: 1;
-    font-weight: bold;
+  display: table-cell;
+  text-align: left;
+  gap: 5px;
+  flex-grow: 1;
+  font-weight: bold;
 }
 
 .item div {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
-.completeditems .item{
-    box-shadow: none;
-    background-color: var(--background-color-2);
+.completeditems .item {
+  box-shadow: none;
+  background-color: var(--background-color-2);
 }
 
-.item input,.item select{
-    display: table-cell;
-    
-    font-size: 0.8em;
-    width: 90%;
-    border-radius: 5px;
-    padding-left: 5px;
-    box-shadow: 0px 0px 5px var(--accent-color-4);
-    background-color: var(--background-color-4);
+.item input,
+.item select {
+  display: table-cell;
+
+  font-size: 0.8em;
+  width: 90%;
+  border-radius: 5px;
+  padding-left: 5px;
+  box-shadow: 0px 0px 5px var(--accent-color-4);
+  background-color: var(--background-color-4);
 }
 
 .item:hover {
-    box-shadow: -4px -4px 10px var(--accent-color-4);
+  box-shadow: -4px -4px 10px var(--accent-color-4);
 }
 
 .itembox {
-    display: table;
-    border-spacing: 5px;
+  display: table;
+  border-spacing: 5px;
 }
 
 .overdue {
-    color: var(--accent-color-1);
+  color: var(--accent-color-1);
 }
 
 .itemcomplete {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .itemcontrol {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Listview */
 
 .listview {
-    display: flex;
-    flex-direction: column;
-    gap:0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
 }
 
-.listview .item{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+.listview .item {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
-.listview .item div{
-    padding-left: 0px;
+.listview .item div {
+  padding-left: 0px;
 }
 
-.listview .itemheading{
-    font-weight: bold;
-    text-decoration: underline;
-    gap: 25px;
+.listview .itemheading {
+  font-weight: bold;
+  text-decoration: underline;
+  gap: 25px;
 }
 
-.listview .itembox{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 3;
-    justify-content: space-between;
+.listview .itembox {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  justify-content: space-between;
 }
 
-.listview label{
-    display: none;
+.listview label {
+  display: none;
 }
 
-.listview .itemcontrol{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
+.listview .itemcontrol {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
-.listview .additem{
-    height:20px;
-    flex-grow: 1;
-    align-self: stretch;
+.listview .additem {
+  height: 20px;
+  flex-grow: 1;
+  align-self: stretch;
 }
 
 /* --Buttons-- */
 
 button {
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    padding: 0;
-    border: 1px var(--secondary-color-1) solid;
-    box-shadow: 2px 2px 10px var(--accent-color-4);
-    background-size: 16px;
-    background-position: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  padding: 0;
+  border: 1px var(--secondary-color-1) solid;
+  box-shadow: 2px 2px 10px var(--accent-color-4);
+  background-size: 16px;
+  background-position: center;
 }
 
 button:hover {
-    cursor: pointer;
-    box-shadow: -4px -4px 10px var(--accent-color-4);
+  cursor: pointer;
+  box-shadow: -4px -4px 10px var(--accent-color-4);
 }
 
 .additem {
-    height: 102px;
-    background-image: url('./img/add_icon.png');
-    background-size: 30px;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    background-color: var(--accent-color-2);
+  height: 102px;
+  background-image: url("./img/add_icon.png");
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: center;
+  background-color: var(--accent-color-2);
 }
 
-.additem:hover{
-    cursor: pointer;
-    background-color: var(--accent-color-2-dark);
+.additem:hover {
+  cursor: pointer;
+  background-color: var(--accent-color-2-dark);
 }
 
 .add {
-    width: 200px;
-    background-image: url('./img/add_icon.png');
-    background-color: var(--accent-color-2);
-    align-self: center;
-    background-repeat: no-repeat;
-    margin: 20px 0;
+  width: 200px;
+  background-image: url("./img/add_icon.png");
+  background-color: var(--accent-color-2);
+  align-self: center;
+  background-repeat: no-repeat;
+  margin: 20px 0;
 }
 
 .add:hover {
-    background-color: var(--accent-color-2-dark);
+  background-color: var(--accent-color-2-dark);
 }
 
 .delete {
-    background-image: url('./img/cross_icon.png');
-    background-color: var(--accent-color-1);
-    align-self: center;
+  background-image: url("./img/cross_icon.png");
+  background-color: var(--accent-color-1);
+  align-self: center;
 }
 
 .delete:hover {
-    background-color: var(--accent-color-1-dark);
+  background-color: var(--accent-color-1-dark);
 }
 
-.flag{
-    background-image: url('./img/check_icon.png');
-    background-color: var(--accent-color-2);
+.flag {
+  background-image: url("./img/check_icon.png");
+  background-color: var(--accent-color-2);
 }
-.flag:hover{
-    background-color: var(--accent-color-2-dark);
-}
-
-.edit{
-    background-image: url('./img/gear_icon.png');
-    background-color: var(--accent-color-3);
-}
-.edit:hover{
-    background-color: var(--accent-color-3-dark);
+.flag:hover {
+  background-color: var(--accent-color-2-dark);
 }
 
-.save{
-    background-image: url('./img/save_icon.png');
-    background-color: var(--accent-color-5);
+.edit {
+  background-image: url("./img/gear_icon.png");
+  background-color: var(--accent-color-3);
 }
-.save:hover{
-    background-color: var(--accent-color-5-dark);
+.edit:hover {
+  background-color: var(--accent-color-3-dark);
 }
 
-.delete_item{
-    background-image: url('./img/cross_icon.png');
-    background-color: var(--accent-color-1);
+.save {
+  background-image: url("./img/save_icon.png");
+  background-color: var(--accent-color-5);
 }
-.delete_item:hover{
-    background-color: var(--accent-color-1-dark);
+.save:hover {
+  background-color: var(--accent-color-5-dark);
+}
+
+.delete_item {
+  background-image: url("./img/cross_icon.png");
+  background-color: var(--accent-color-1);
+}
+.delete_item:hover {
+  background-color: var(--accent-color-1-dark);
 }

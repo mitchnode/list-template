@@ -1,4 +1,4 @@
 import "./styles.css";
-import { testProject } from './test.js'
+import { testProject } from "./test.js";
 
 testProject();

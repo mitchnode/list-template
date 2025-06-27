@@ -1,51 +1,61 @@
-import { Project } from "./project.js"
+import { Project } from "./project.js";
 
 export class ProjectStore {
-    constructor(){
-        this.storeData = {};
-    }
+  constructor() {
+    this.storeData = {};
+  }
 
-    addProject(name){
-        var project = new Project(this, name)
-        this.storeData[name] = project;
-        this.saveLocal();
-        return project;
-    }
+  addProject(name) {
+    var project = new Project(this, name);
+    this.storeData[name] = project;
+    this.saveLocal();
+    return project;
+  }
 
-    deleteProject(name){
-        delete this.storeData[name];
-        this.saveLocal();
-    }
+  deleteProject(name) {
+    delete this.storeData[name];
+    this.saveLocal();
+  }
 
-    getStoreData(){
-        return this.storeData;
-    }
+  getStoreData() {
+    return this.storeData;
+  }
 
-    replacerFunc = () => {
-        const visited = new WeakSet();
-        return (key, value) => {
-          if (typeof value === "object" && value !== null) {
-            if (visited.has(value)) {
-              return;
-            }
-            visited.add(value);
-          }
-          return value;
-        };
-      };
+  replacerFunc = () => {
+    const visited = new WeakSet();
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (visited.has(value)) {
+          return;
+        }
+        visited.add(value);
+      }
+      return value;
+    };
+  };
 
-    saveLocal(){
-        localStorage.setItem("ProjectStore", JSON.stringify(this.storeData, this.replacerFunc()));
-    }
+  saveLocal() {
+    localStorage.setItem(
+      "ProjectStore",
+      JSON.stringify(this.storeData, this.replacerFunc())
+    );
+  }
 
-    loadLocal(){
-        var loadData = JSON.parse(localStorage.getItem("ProjectStore"));
-        Object.entries(loadData).map(project => {
-            var loadedProject = this.addProject(project[0]);
-            Object.entries(project[1]["projectData"]).map(item => {
-                console.log(item);
-                loadedProject.addItem(item[1]["name"], item[1]["description"], item[1]["priority"], item[1]["dueDate"], item[1]["flag"], item[1]["itemid"]);
-            });
-        });
-    }
+  loadLocal() {
+    var loadData = JSON.parse(localStorage.getItem("ProjectStore"));
+    Object.entries(loadData).map((project) => {
+      var loadedProject = this.addProject(project[0]);
+      Object.entries(project[1]["projectData"]).map((item) => {
+        console.log(item);
+        loadedProject.addItem(
+          item[1]["name"],
+          item[1]["description"],
+          item[1]["priority"],
+          item[1]["dueDate"],
+          item[1]["flag"],
+          item[1]["itemid"]
+        );
+      });
+    });
+  }
 }
